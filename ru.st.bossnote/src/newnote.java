@@ -33,6 +33,7 @@ public class newnote {
     driver.findElement(By.linkText("Сохранить")).click();
     driver.findElement(By.cssSelector("a.mainButton")).click();
     driver.findElement(By.linkText("Выйти из системы")).click();
+    
   }
 
   @After
