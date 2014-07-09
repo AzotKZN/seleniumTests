@@ -43,11 +43,11 @@ public class newnote {
     driver.findElement(By.id("passwrd")).clear();
     driver.findElement(By.id("passwrd")).sendKeys("l");
     driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+    Thread.sleep(1000);
     driver.findElement(By.cssSelector("div > img")).click();
     driver.findElement(By.linkText("Сохранить")).click();
     driver.findElement(By.cssSelector("a.mainButton")).click();
     driver.findElement(By.linkText("Выйти из системы")).click();
-
   }
 
   @After
@@ -55,7 +55,7 @@ public class newnote {
 	// take the screenshot at the end of every test
       File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
       // now save the screenshto to a file some place
-      FileUtils.copyFile(scrFile, new File("c:\\tmp\\screenshot.png"));
+      FileUtils.copyFile(scrFile, new File("screenshot111.png"));
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
