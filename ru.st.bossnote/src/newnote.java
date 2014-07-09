@@ -25,7 +25,7 @@ public class newnote {
   public void setUp() throws Exception {
    //driver = new FirefoxDriver();
     baseUrl = "http://178.205.251.227:8087/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
   
   public void openHeadless() throws Exception
@@ -56,7 +56,7 @@ public class newnote {
       //File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
       // now save the screenshto to a file some place
       //FileUtils.copyFile(scrFile, new File("screenshot111.png"));
-    driver.quit();
+   // driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
