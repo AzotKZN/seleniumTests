@@ -11,6 +11,7 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.support.ui.Select;
 
 public class newnote {
@@ -21,7 +22,7 @@ public class newnote {
 
   @Before
   public void setUp() throws Exception {
-   // driver = new FirefoxDriver();
+    driver = new FirefoxDriver();
     baseUrl = "http://178.205.251.227:8087/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
@@ -36,6 +37,9 @@ public class newnote {
   @Test
   public void testNewnote() throws Exception {
    	driver.get(baseUrl);
+   	WebDriver augmentedDriver = new Augmenter().augment(driver);
+    File screenshot = ((TakesScreenshot)augmentedDriver).
+                        getScreenshotAs(OutputType.FILE);
 	driver.findElement(By.id("email")).clear();
     driver.findElement(By.id("email")).sendKeys("lol");
     driver.findElement(By.id("passwrd")).clear();
@@ -45,6 +49,7 @@ public class newnote {
     driver.findElement(By.linkText("Сохранить")).click();
     driver.findElement(By.cssSelector("a.mainButton")).click();
     driver.findElement(By.linkText("Выйти из системы")).click();
+
   }
 
   @After
