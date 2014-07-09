@@ -49,6 +49,8 @@ public class newnote {
     driver.findElement(By.linkText("Сохранить")).click();
     driver.findElement(By.cssSelector("a.mainButton")).click();
     driver.findElement(By.linkText("Выйти из системы")).click();
+    File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    FileUtils.copyFile(scrFile, new File("screenshot111.png"));
   }
 
   @After
@@ -57,7 +59,7 @@ public class newnote {
       //File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
       // now save the screenshto to a file some place
       //FileUtils.copyFile(scrFile, new File("screenshot111.png"));
-   // driver.quit();
+    driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
