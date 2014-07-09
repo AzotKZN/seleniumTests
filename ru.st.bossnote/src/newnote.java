@@ -26,8 +26,12 @@ public class newnote {
    //driver = new FirefoxDriver();
     baseUrl = "http://178.205.251.227:8087/";
     //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    FirefoxBinary binary = new FirefoxBinary(new File("/usr/bin/firefox"));
-    binary.setEnvironmentProperty("DISPLAY",System.getProperty("lmportal.xvfb.id",":0"));
+    String Xport = System.getProperty(
+            "lmportal.xvfb.id", ":1");
+    final File firefoxPath = new File(System.getProperty(
+            "lmportal.deploy.firefox.path", "/usr/bin/firefox"));
+    FirefoxBinary binary = new FirefoxBinary(firefoxPath);
+    binary.setEnvironmentProperty("DISPLAY", Xport);
     driver = new FirefoxDriver(binary,null);
   }
   
@@ -55,6 +59,8 @@ public class newnote {
 
   @After
   public void tearDown() throws Exception {
+	  File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+      FileUtils.copyFile(srcFile, new File("ffsnapshot.png"));
 	// take the screenshot at the end of every test
       //File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
       // now save the screenshto to a file some place
