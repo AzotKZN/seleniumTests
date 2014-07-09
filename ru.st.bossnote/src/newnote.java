@@ -23,15 +23,15 @@ public class newnote {
 
   @Before
   public void setUp() throws Exception {
-    driver = new FirefoxDriver();
+   // driver = new FirefoxDriver();
     baseUrl = "http://178.205.251.227:8087/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
   
   public void openHeadless() throws Exception
   {
-      FirefoxBinary binary = new FirefoxBinary(new File("/usr/local/bin/firefox"));
-      binary.setEnvironmentProperty("DISPLAY",System.getProperty("lmportal.xvfb.id",":99"));
+      FirefoxBinary binary = new FirefoxBinary(new File("/usr/bin/firefox"));
+      binary.setEnvironmentProperty("DISPLAY",System.getProperty("lmportal.xvfb.id",":0"));
       driver = new FirefoxDriver(binary,null);
   }
 
