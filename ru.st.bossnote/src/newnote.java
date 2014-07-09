@@ -27,7 +27,7 @@ public class newnote {
     baseUrl = "http://178.205.251.227:8087/";
     //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     String Xport = System.getProperty(
-            "lmportal.xvfb.id", ":1");
+            "lmportal.xvfb.id", ":0");
     final File firefoxPath = new File(System.getProperty(
             "lmportal.deploy.firefox.path", "/usr/bin/firefox"));
     FirefoxBinary binary = new FirefoxBinary(firefoxPath);
