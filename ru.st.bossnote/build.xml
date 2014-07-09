@@ -68,6 +68,8 @@
                 <include name="TEST-*.xml"/>
             </fileset>
             <report format="frames" todir="${junit.output.dir}"/>
+        	 <formatter type="plain" usefile="false" /> <!-- to screen -->
+        	        <formatter type="plain" /> <!-- to file -->
         </junitreport>
     </target>
 </project>
