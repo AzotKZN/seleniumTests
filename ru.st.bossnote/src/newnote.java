@@ -3,6 +3,7 @@ import java.io.File;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.*;
 
 import static org.junit.Assert.*;
@@ -37,9 +38,6 @@ public class newnote {
   @Test
   public void testNewnote() throws Exception {
    	driver.get(baseUrl);
-   	WebDriver augmentedDriver = new Augmenter().augment(driver);
-    File screenshot = ((TakesScreenshot)augmentedDriver).
-                        getScreenshotAs(OutputType.FILE);
 	driver.findElement(By.id("email")).clear();
     driver.findElement(By.id("email")).sendKeys("lol");
     driver.findElement(By.id("passwrd")).clear();
@@ -54,6 +52,10 @@ public class newnote {
 
   @After
   public void tearDown() throws Exception {
+	// take the screenshot at the end of every test
+      File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+      // now save the screenshto to a file some place
+      FileUtils.copyFile(scrFile, new File("c:\\tmp\\screenshot.png"));
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
