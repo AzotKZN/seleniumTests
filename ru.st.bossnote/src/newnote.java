@@ -24,7 +24,7 @@ public class newnote {
   @Before
   public void setUp() throws Exception {
    //driver = new FirefoxDriver();
-    baseUrl = "http://178.205.251.227:8087/";
+    baseUrl = "http://web2.bossnote.ru/";
     //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     String Xport = System.getProperty(
             "lmportal.xvfb.id", ":0");
@@ -54,7 +54,7 @@ public class newnote {
     driver.findElement(By.cssSelector("a.mainButton")).click();
     driver.findElement(By.linkText("Выйти из системы")).click();
     File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-    FileUtils.copyFile(scrFile, new File("screenshot111.png"));
+    FileUtils.copyFile(scrFile, new File("screenshot1.png"));
   }
 
   @After
