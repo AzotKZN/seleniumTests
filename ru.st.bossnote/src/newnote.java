@@ -44,7 +44,7 @@ public class newnote {
   public void testNewnote() throws Exception {
    	driver.get(baseUrl);
 	driver.findElement(By.id("email")).clear();
-    driver.findElement(By.id("email")).sendKeys("lol");
+    driver.findElement(By.id("email")).sendKeys("lol@t.tt");
     driver.findElement(By.id("passwrd")).clear();
     driver.findElement(By.id("passwrd")).sendKeys("l");
     driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
