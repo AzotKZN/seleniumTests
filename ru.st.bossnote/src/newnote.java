@@ -54,13 +54,13 @@ public class newnote {
     driver.findElement(By.cssSelector("a.mainButton")).click();
     driver.findElement(By.linkText("Выйти из системы")).click();
     File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-    FileUtils.copyFile(scrFile, new File("screenshot1.png"));
+    FileUtils.copyFile(scrFile, new File("Normal_screenshot.png"));
   }
 
   @After
   public void tearDown() throws Exception {
 	  File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-      FileUtils.copyFile(srcFile, new File("ffsnapshot.png"));
+      FileUtils.copyFile(srcFile, new File("Down_screen.png"));
 	// take the screenshot at the end of every test
       //File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
       // now save the screenshto to a file some place
